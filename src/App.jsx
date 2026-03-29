@@ -32,10 +32,10 @@ function App() {
 
     return (
         // Khung bao ngoài cùng: nền đen hoàn toàn (bg-black)
-        <div className="min-h-screen bg-black flex items-center justify-center p-4">
+        <div className="min-h-screen bg-black flex items-center justify-center p-5">
 
             {/* Box chứa nội dung chính: Thon gọn hơn, viền xanh lá (border-green-500) */}
-            <div className="border border-green-500 p-4 shadow-xl w-full max-w-sm flex flex-col items-center gap-5">
+            <div className="border border-green-500 p-4 shadow-xl w-full max-w-xs flex flex-col items-center gap-4">
 
                 <input
                     type="text"
@@ -47,7 +47,7 @@ function App() {
                         }
                     }}
                     disabled={isLoading}
-                    className="w-40 px-4 py-3 bg-transparent text-green-500 border border-green-500 font-mono text-center focus:outline-none focus:ring-1 focus:ring-green-400 placeholder-green-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-40 px-3 py-2 bg-transparent text-green-500 border border-green-500 font-mono text-center focus:outline-none focus:ring-1 focus:ring-green-400 placeholder-green-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 />
 
                 {/* Ô Input chính */}
@@ -61,20 +61,20 @@ function App() {
                         }
                     }}
                     disabled={isLoading}
-                    className="w-full px-4 py-3 bg-transparent text-green-500 border border-green-500 font-mono text-center focus:outline-none focus:ring-1 focus:ring-green-400 placeholder-green-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full px-3 py-2 bg-transparent text-green-500 border border-green-500 font-mono text-center focus:outline-none focus:ring-1 focus:ring-green-400 placeholder-green-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 />
 
                 {/* Nút Kiểm tra */}
                 <button
                     onClick={handleCheck}
                     disabled={isLoading}
-                    className="bg-transparent border border-green-500 text-green-500 font-mono font-semibold py-3 px-7 hover:bg-green-950 active:bg-green-900 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent"
+                    className="bg-transparent border border-green-500 text-green-500 font-mono font-semibold py-2 px-5 hover:bg-green-950 active:bg-green-900 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent"
                 >
                     {isLoading ? 'ĐANG CHỜ...' : 'KIỂM TRA'}
                 </button>
 
                 {/* Khu vực hiển thị kết quả */}
-                <div className="h-10 flex items-center justify-center mt-2 w-full text-sm font-mono">
+                <div className="h-10 flex items-center justify-center w-full text-sm font-mono">
 
                     {/* Hiển thị chữ đang phân tích khi đang loading */}
                     {isLoading && (
