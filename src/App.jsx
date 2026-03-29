@@ -11,13 +11,13 @@ function App() {
             return;
         }
 
-        // Random tỉ lệ 50/50
-        const isSuccess = Math.random() >= 0.5;
+        // Tỉ lệ 70% ra V (success) và 30% ra X (error)
+        const isSuccess = Math.random() >= 0.7;
         setResult(isSuccess ? 'success' : 'error');
     };
 
     return (
-        // Khung bao ngoài cùng: nền tối (bg-gray-900), căn giữa toàn bộ màn hình
+        // Khung bao ngoài cùng: nền tối
         <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
 
             {/* Box chứa nội dung chính */}
@@ -30,7 +30,6 @@ function App() {
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={(e) => {
-                        // Nếu phím bấm là Enter thì gọi hàm handleCheck
                         if (e.key === 'Enter') {
                             handleCheck();
                         }
@@ -47,19 +46,33 @@ function App() {
                     Kiểm tra
                 </button>
 
-                {/* Khu vực hiển thị kết quả */}
-                <div className="h-24 flex items-center justify-center mt-2">
+                {/* Khu vực hiển thị kết quả (Kéo giãn chiều cao một chút để chứa cả chữ) */}
+                <div className="h-32 flex items-center justify-center mt-2 w-full">
+
+                    {/* Trường hợp: Tài khoản ổn định (Dấu V) */}
                     {result === 'success' && (
-                        <svg className="w-20 h-20 text-green-500 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                        </svg>
+                        <div className="flex flex-col items-center gap-3 animate-bounce">
+                            <svg className="w-16 h-16 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <p className="text-green-500 font-semibold text-lg text-center">
+                                Tài khoản ổn định
+                            </p>
+                        </div>
                     )}
 
+                    {/* Trường hợp: Tài khoản không ổn định (Dấu X) */}
                     {result === 'error' && (
-                        <svg className="w-20 h-20 text-red-500 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
+                        <div className="flex flex-col items-center gap-3 animate-bounce">
+                            <svg className="w-16 h-16 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            <p className="text-red-500 font-semibold text-lg text-center">
+                                Tài khoản không ổn định
+                            </p>
+                        </div>
                     )}
+
                 </div>
             </div>
 
