@@ -35,17 +35,12 @@ function App() {
         <div className="min-h-screen bg-black flex items-center justify-center p-5">
 
             {/* Box chứa nội dung chính: Thon gọn hơn, viền xanh lá (border-green-500) */}
-            <div className="border border-green-500 p-4 shadow-xl w-full max-w-xs flex flex-col items-center gap-4">
+            <div className="border border-green-500 py-4 px-6 shadow-xl w-full max-w-xs flex flex-col items-center gap-4">
 
                 <input
                     type="text"
                     value={inputValue1}
                     onChange={(e) => setInputValue1(e.target.value)}
-                    onKeyDown={(e) => {
-                        if (e.key === 'Enter' && !isLoading) {
-                            handleCheck();
-                        }
-                    }}
                     disabled={isLoading}
                     className="w-40 px-3 py-2 bg-transparent text-green-500 border border-green-500 font-mono text-center focus:outline-none focus:ring-1 focus:ring-green-400 placeholder-green-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 />
